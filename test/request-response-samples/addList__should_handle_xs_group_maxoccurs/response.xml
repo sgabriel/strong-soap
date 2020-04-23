@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Header />
+	<soap:Body>
+		<ns1:addList xmlns:ns1="urn:example">
+			<ns1:document id="1">
+				<ns1:record id="r1">record-1.1</ns1:record>
+				<ns1:record id="r2">record-1.2</ns1:record>
+			</ns1:document>
+			<ns1:document id="2">
+				<ns1:record id="r1">record-2.1</ns1:record>
+				<ns1:record id="r2">record-2.2</ns1:record>
+			</ns1:document>
+		</ns1:addList>
+	</soap:Body>
+</soap:Envelope>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:msgs="urn:example" targetNamespace="urn:example" elementFormDefault="qualified" attributeFormDefault="qualified">
+
+    <complexType name="AddListResponse">
+        <sequence>
+            <element name="document" minOccurs="1" maxOccurs="unbounded" type="msgs:Document" />
+        </sequence>
+    </complexType>
+    <element name="addListResponse" type="msgs:AddListResponse" />
+
+    <complexType name="AddListRequest">
+        <sequence>
+            <element name="document" minOccurs="1" maxOccurs="unbounded" type="msgs:Document" />
+        </sequence>
+    </complexType>
+    <element name="addList" type="msgs:AddListRequest" />
+
+    <complexType name="Document">
+        <group ref="msgs:documentElements" maxOccurs="unbounded" />
+        <attribute name="id" use="required" type="token" />
+    </complexType>
+
+    <group name="documentElements">
+        <choice>
+            <element name="record" type="msgs:Record" />
+            <element name="entry" type="msgs:Entry" />
+        </choice>
+    </group>
+
+    <complexType name="Record" mixed="true">
+        <sequence>
+            <any processContents="lax" minOccurs="0" />
+        </sequence>
+        <attribute name="id" use="required" type="string" />
+    </complexType>
+
+    <complexType name="Entry" mixed="true">
+        <sequence>
+            <any processContents="lax" minOccurs="0" />
+        </sequence>
+        <attribute name="id" use="required" type="string" />
+    </complexType>
+</schema>
